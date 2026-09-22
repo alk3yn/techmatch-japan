@@ -28,7 +28,7 @@ app.get('/api/health', (req, res) => {
 
 // ---- Route mounting ----
 // Routes are added incrementally following the build order:
-//   Day 3: app.use('/api/auth', require('./routes/auth'));
+app.use('/api/auth', require('./routes/auth'));
 //   Day 4: app.use('/api/jobs', require('./routes/jobs'));
 //   Day 5: app.use('/api/analytics', require('./routes/analytics'));
 //   Day 5: app.use('/api/analyzer', require('./routes/analyzer'));
