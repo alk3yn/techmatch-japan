@@ -30,9 +30,9 @@ app.get('/api/health', (req, res) => {
 // Routes are added incrementally following the build order:
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/jobs', require('./routes/jobs'));
-//   Day 5: app.use('/api/analytics', require('./routes/analytics'));
-//   Day 5: app.use('/api/analyzer', require('./routes/analyzer'));
-//   Day 5: app.use('/api/user', require('./routes/user'));
+app.use('/api/analytics', require('./routes/analytics'));
+app.use('/api/analyzer', require('./routes/analyzer'));
+app.use('/api/user', require('./routes/user'));
 
 // ---- 404 handler for unknown API routes ----
 app.use('/api', (req, res) => {

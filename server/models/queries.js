@@ -181,6 +181,124 @@ async function getAllSkills() {
   return result.rows.map((row) => row.skill_name);
 }
 
+// ---------------------------------------------------------------------------
+// Analytics
+// ---------------------------------------------------------------------------
+
+async function getSalaryByTech() {
+  const result = await query(
+    `SELECT js.skill_name AS tech,
+            ROUND(AVG((jl.salary_min + jl.salary_max) / 2.0))::int AS avg_salary,
+            COUNT(*)::int AS count
+     FROM job_skills js
+     JOIN job_listings jl ON jl.id = js.job_id
+     GROUP BY js.skill_name
+     ORDER BY avg_salary DESC`
+  );
+  return result.rows;
+}
+
+async function getJobsByLocation() {
+  const result = await query(
+    `SELECT location, COUNT(*)::int AS count
+     FROM job_listings
+     GROUP BY location
+     ORDER BY count DESC`
+  );
+  return result.rows;
+}
+
+async function getSkillsDemand() {
+  const result = await query(
+    `SELECT skill_name AS skill, COUNT(*)::int AS count
+     FROM job_skills
+     GROUP BY skill_name
+     ORDER BY count DESC`
+  );
+  return result.rows;
+}
+
+async function getSalaryVsExperience() {
+  const result = await query(
+    `SELECT experience_years AS experience,
+            ROUND(AVG((salary_min + salary_max) / 2.0))::int AS avg_salary
+     FROM job_listings
+     GROUP BY experience_years
+     ORDER BY experience_years ASC`
+  );
+  return result.rows;
+}
+
+async function getCareerChangerStats() {
+  const result = await query(
+    `SELECT COUNT(*)::int AS total_jobs,
+            COUNT(*) FILTER (WHERE career_changer_friendly)::int AS career_changer_friendly
+     FROM job_listings`
+  );
+  const { total_jobs, career_changer_friendly } = result.rows[0];
+  const percentage = total_jobs > 0 ? Math.round((career_changer_friendly / total_jobs) * 100) : 0;
+  return { total_jobs, career_changer_friendly, percentage };
+}
+
+async function getAnalyticsOverview() {
+  const result = await query(
+    `SELECT COUNT(*)::int AS total_jobs,
+            ROUND(AVG((salary_min + salary_max) / 2.0))::int AS avg_salary,
+            COUNT(*) FILTER (WHERE is_remote)::int AS remote_count,
+            COUNT(*) FILTER (WHERE career_changer_friendly)::int AS career_changer_count
+     FROM job_listings`
+  );
+  return result.rows[0];
+}
+
+// ---------------------------------------------------------------------------
+// Skill analyzer
+// ---------------------------------------------------------------------------
+
+async function getAllJobsForAnalysis() {
+  const result = await query(
+    `SELECT jl.id, jl.title_ja, jl.title_en,
+            COALESCE(
+              array_agg(js.skill_name ORDER BY js.skill_name) FILTER (WHERE js.skill_name IS NOT NULL),
+              '{}'
+            ) AS skills
+     FROM job_listings jl
+     LEFT JOIN job_skills js ON js.job_id = jl.id
+     GROUP BY jl.id`
+  );
+  return result.rows;
+}
+
+// ---------------------------------------------------------------------------
+// Saved searches
+// ---------------------------------------------------------------------------
+
+async function getSavedSearchesByUser(userId) {
+  const result = await query(
+    'SELECT * FROM saved_searches WHERE user_id = $1 ORDER BY created_at DESC',
+    [userId]
+  );
+  return result.rows;
+}
+
+async function createSavedSearch(userId, { searchName, filters }) {
+  const result = await query(
+    `INSERT INTO saved_searches (user_id, search_name, filters)
+     VALUES ($1, $2, $3)
+     RETURNING *`,
+    [userId, searchName, filters]
+  );
+  return result.rows[0];
+}
+
+async function deleteSavedSearch(id, userId) {
+  const result = await query(
+    'DELETE FROM saved_searches WHERE id = $1 AND user_id = $2 RETURNING id',
+    [id, userId]
+  );
+  return result.rowCount > 0;
+}
+
 module.exports = {
   findUserByEmail,
   findUserById,
@@ -189,4 +307,14 @@ module.exports = {
   getJobs,
   getJobById,
   getAllSkills,
+  getSalaryByTech,
+  getJobsByLocation,
+  getSkillsDemand,
+  getSalaryVsExperience,
+  getCareerChangerStats,
+  getAnalyticsOverview,
+  getAllJobsForAnalysis,
+  getSavedSearchesByUser,
+  createSavedSearch,
+  deleteSavedSearch,
 };
