@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "jobs": "Job Listings",
+    "analyzer": "Skill Analyzer",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout"
+  },
+  "home": {
+    "title": "TechMatch Japan",
+    "subtitle": "IT Career Intelligence Platform for Engineers in Japan",
+    "description": "Bilingual platform supporting salary comparison, skill gap analysis, and career development",
+    "cta": "Get Started",
+    "features": {
+      "salary": {
+        "title": "Salary Analytics",
+        "description": "Visualize salary data by technology stack, city, and experience level"
+      },
+      "skills": {
+        "title": "Skill Analysis",
+        "description": "Input your skills to see matching jobs and identify gaps"
+      },
+      "bilingual": {
+        "title": "Bilingual Support",
+        "description": "Full support in Japanese and English"
+      },
+      "career": {
+        "title": "Career Support",
+        "description": "Filter for career-changer friendly positions"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "salaryByTech": "Salary by Technology",
+    "jobsByLocation": "Jobs by Location",
+    "skillsDemand": "Skills Demand Ranking",
+    "salaryVsExp": "Salary vs Experience",
+    "careerChangerStats": "Career Changer Friendly Rate",
+    "totalJobs": "Total Jobs",
+    "avgSalary": "Average Salary",
+    "remoteJobs": "Remote OK",
+    "careerChangerFriendly": "Career Changer OK"
+  },
+  "jobs": {
+    "title": "Job Listings",
+    "search": "Search",
+    "filter": "Filter",
+    "location": "Location",
+    "salary": "Salary",
+    "experience": "Experience",
+    "remote": "Remote OK",
+    "careerChanger": "Career Changer OK",
+    "skills": "Skills",
+    "apply": "Apply",
+    "noResults": "No matching jobs found"
+  },
+  "analyzer": {
+    "title": "Skill Analyzer",
+    "yourSkills": "Your Skills",
+    "addSkill": "Add Skill",
+    "results": "Analysis Results",
+    "matchRate": "Match Rate",
+    "missingSkills": "Missing Skills",
+    "recommendedSkills": "Recommended Skills",
+    "matchedJobs": "Matched Jobs",
+    "enterSkills": "Enter your skills"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email Address",
+    "password": "Password",
+    "displayName": "Display Name",
+    "language": "Language",
+    "loginSuccess": "Logged in successfully",
+    "registerSuccess": "Registered successfully",
+    "logoutSuccess": "Logged out"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "yen": "JPY",
+    "perYear": "per year",
+    "years": "years",
+    "remote": "Remote",
+    "onsite": "On-site",
+    "yes": "Yes",
+    "no": "No"
+  }
+}
