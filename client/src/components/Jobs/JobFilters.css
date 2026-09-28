@@ -1,0 +1,117 @@
+.job-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.job-filters__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  min-width: 0;
+}
+
+.job-filters__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.job-filters select {
+  width: 100%;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 9px 10px;
+  font-size: 0.88rem;
+  font-family: inherit;
+}
+
+.job-filters select:focus-visible,
+.job-filters__skill:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.job-filters__check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.job-filters__check input {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+.job-filters__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 170px;
+  overflow-y: auto;
+  padding: 2px;
+}
+
+.job-filters__skill {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.job-filters__skill:hover {
+  color: var(--text-primary);
+}
+
+.job-filters__skill.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.job-filters__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.job-filters__submit {
+  flex: 1;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.job-filters__submit:hover {
+  background: var(--accent-hover);
+}
+
+.job-filters__reset {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.job-filters__reset:hover {
+  color: var(--text-primary);
+}
