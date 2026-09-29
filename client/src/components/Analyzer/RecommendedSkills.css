@@ -1,0 +1,44 @@
+.recommended-skills {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.recommended-skills__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.recommended-skills__hint {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.recommended-skills__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.recommended-skill {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.recommended-skill:hover {
+  border-color: var(--accent);
+}
+
+.recommended-skill.is-top {
+  border-color: var(--warning);
+  color: var(--warning);
+  font-weight: 600;
+}

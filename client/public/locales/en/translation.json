@@ -103,7 +103,16 @@
     "missingSkills": "Missing Skills",
     "recommendedSkills": "Recommended Skills",
     "matchedJobs": "Matched Jobs",
-    "enterSkills": "Enter your skills"
+    "enterSkills": "Enter your skills",
+    "placeholder": "Type a skill and press Enter",
+    "remove": "Remove",
+    "noMatches": "No matching jobs",
+    "topMatches": "Best Matching Jobs",
+    "addSuggested": "Click to add",
+    "popularSkills": "Popular skills",
+    "matchRatePercent": "{{rate}}% match",
+    "viewJob": "View job",
+    "analyzing": "Analyzing..."
   },
   "auth": {
     "login": "Login",

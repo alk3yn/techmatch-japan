@@ -103,7 +103,16 @@
     "missingSkills": "不足スキル",
     "recommendedSkills": "推奨スキル",
     "matchedJobs": "マッチした求人",
-    "enterSkills": "スキルを入力してください"
+    "enterSkills": "スキルを入力してください",
+    "placeholder": "スキル名を入力してEnter",
+    "remove": "削除",
+    "noMatches": "マッチする求人がありません",
+    "topMatches": "マッチ率が高い求人",
+    "addSuggested": "クリックして追加",
+    "popularSkills": "よく使われるスキル",
+    "matchRatePercent": "マッチ率 {{rate}}%",
+    "viewJob": "求人を見る",
+    "analyzing": "分析中..."
   },
   "auth": {
     "login": "ログイン",
