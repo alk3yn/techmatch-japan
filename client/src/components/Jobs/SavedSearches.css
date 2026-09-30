@@ -57,6 +57,11 @@
   gap: 8px;
 }
 
+.saved-searches__error {
+  font-size: 0.75rem;
+  color: var(--error);
+}
+
 .saved-searches__form input {
   background: var(--bg-secondary);
   border: 1px solid var(--border);

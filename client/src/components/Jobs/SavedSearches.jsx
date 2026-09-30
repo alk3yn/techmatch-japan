@@ -14,6 +14,7 @@ function SavedSearches({ currentFilters, onLoad }) {
   const [loading, setLoading] = useState(false);
   const [adding, setAdding] = useState(false);
   const [name, setName] = useState('');
+  const [saveError, setSaveError] = useState('');
 
   function loadSearches() {
     if (!isAuthenticated) return;
@@ -30,6 +31,7 @@ function SavedSearches({ currentFilters, onLoad }) {
   async function handleSave(e) {
     e.preventDefault();
     if (!name.trim()) return;
+    setSaveError('');
     try {
       await apiClient.post('/user/saved-searches', {
         searchName: name.trim(),
@@ -40,6 +42,7 @@ function SavedSearches({ currentFilters, onLoad }) {
       loadSearches();
     } catch {
       // Keep the form open so the person can retry.
+      setSaveError(t('common.error'));
     }
   }
 
@@ -68,7 +71,14 @@ function SavedSearches({ currentFilters, onLoad }) {
       <div className="saved-searches__header">
         <h3 className="saved-searches__title">{t('jobs.savedSearches')}</h3>
         {!adding && (
-          <button type="button" className="saved-searches__add-btn" onClick={() => setAdding(true)}>
+          <button
+            type="button"
+            className="saved-searches__add-btn"
+            onClick={() => {
+              setAdding(true);
+              setSaveError('');
+            }}
+          >
             + {t('jobs.saveSearch')}
           </button>
         )}
@@ -76,6 +86,7 @@ function SavedSearches({ currentFilters, onLoad }) {
 
       {adding && (
         <form className="saved-searches__form" onSubmit={handleSave}>
+          {saveError && <div className="saved-searches__error">{saveError}</div>}
           <input
             type="text"
             autoFocus
@@ -93,6 +104,7 @@ function SavedSearches({ currentFilters, onLoad }) {
               onClick={() => {
                 setAdding(false);
                 setName('');
+                setSaveError('');
               }}
             >
               {t('jobs.cancel')}

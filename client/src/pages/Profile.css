@@ -11,6 +11,15 @@
   max-width: 520px;
 }
 
+.profile-form__error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: var(--error);
+  font-size: 0.82rem;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+}
+
 .profile-form__field {
   display: flex;
   flex-direction: column;

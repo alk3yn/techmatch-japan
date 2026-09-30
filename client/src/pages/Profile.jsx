@@ -17,6 +17,7 @@ function Profile() {
   const [skillOptions, setSkillOptions] = useState([]);
   const [saving, setSaving] = useState(false);
   const [savedMessage, setSavedMessage] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (user) {
@@ -41,6 +42,7 @@ function Profile() {
     e.preventDefault();
     setSaving(true);
     setSavedMessage(false);
+    setError('');
     try {
       const res = await apiClient.put('/user/profile', {
         displayName,
@@ -53,6 +55,7 @@ function Profile() {
       setTimeout(() => setSavedMessage(false), 2500);
     } catch {
       // Keep the form as-is so the person can retry.
+      setError(t('common.error'));
     } finally {
       setSaving(false);
     }
@@ -63,6 +66,8 @@ function Profile() {
       <h1 className="profile-page__title">{t('profile.title')}</h1>
 
       <form className="profile-form" onSubmit={handleSubmit}>
+        {error && <div className="profile-form__error">{error}</div>}
+
         <label className="profile-form__field">
           <span>{t('auth.displayName')}</span>
           <input
