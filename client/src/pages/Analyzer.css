@@ -25,6 +25,12 @@
   margin-bottom: 10px;
 }
 
+.analyzer-page__persist-hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: -4px;
+}
+
 .analyzer-page__prompt {
   text-align: center;
   padding: 80px 20px;

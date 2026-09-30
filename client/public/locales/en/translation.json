@@ -92,7 +92,16 @@
       "Osaka": "Osaka",
       "Yokohama": "Yokohama",
       "Nagoya": "Nagoya"
-    }
+    },
+    "savedSearches": "Saved Searches",
+    "saveSearch": "Save this search",
+    "searchNamePlaceholder": "Name this search",
+    "save": "Save",
+    "cancel": "Cancel",
+    "loadSearch": "Load",
+    "deleteSearch": "Delete",
+    "noSavedSearches": "No saved searches yet",
+    "loginToSave": "Log in to save searches"
   },
   "analyzer": {
     "title": "Skill Analyzer",
@@ -112,7 +121,9 @@
     "popularSkills": "Popular skills",
     "matchRatePercent": "{{rate}}% match",
     "viewJob": "View job",
-    "analyzing": "Analyzing..."
+    "analyzing": "Analyzing...",
+    "skillsSavedHint": "Signed in — your skills are saved automatically",
+    "loginToPersist": "Log in to save your skills across sessions"
   },
   "auth": {
     "login": "Login",
@@ -145,5 +156,11 @@
     "onsite": "On-site",
     "yes": "Yes",
     "no": "No"
+  },
+  "profile": {
+    "title": "Profile",
+    "updateSuccess": "Profile updated",
+    "save": "Save",
+    "yourSkills": "Your Skills"
   }
 }

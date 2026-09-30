@@ -76,6 +76,10 @@
   color: var(--text-secondary);
 }
 
+.site-header__username:hover {
+  color: var(--text-primary);
+}
+
 .site-header__logout {
   background: transparent;
   border: 1px solid var(--border);

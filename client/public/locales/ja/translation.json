@@ -92,7 +92,16 @@
       "Osaka": "大阪",
       "Yokohama": "横浜",
       "Nagoya": "名古屋"
-    }
+    },
+    "savedSearches": "保存した検索",
+    "saveSearch": "この検索条件を保存",
+    "searchNamePlaceholder": "検索名を入力",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "loadSearch": "読み込む",
+    "deleteSearch": "削除",
+    "noSavedSearches": "保存した検索はまだありません",
+    "loginToSave": "検索を保存するにはログインしてください"
   },
   "analyzer": {
     "title": "スキル分析",
@@ -112,7 +121,9 @@
     "popularSkills": "よく使われるスキル",
     "matchRatePercent": "マッチ率 {{rate}}%",
     "viewJob": "求人を見る",
-    "analyzing": "分析中..."
+    "analyzing": "分析中...",
+    "skillsSavedHint": "ログイン中: スキルは自動的に保存されます",
+    "loginToPersist": "ログインするとスキルが保存されます"
   },
   "auth": {
     "login": "ログイン",
@@ -145,5 +156,11 @@
     "onsite": "出社",
     "yes": "はい",
     "no": "いいえ"
+  },
+  "profile": {
+    "title": "プロフィール",
+    "updateSuccess": "プロフィールを更新しました",
+    "save": "保存",
+    "yourSkills": "あなたのスキル"
   }
 }

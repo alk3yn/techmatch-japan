@@ -31,7 +31,9 @@ function Header() {
         <div className="site-header__actions">
           {isAuthenticated ? (
             <div className="site-header__user">
-              <span className="site-header__username">{user?.display_name || user?.email}</span>
+              <NavLink to="/profile" className="site-header__username">
+                {user?.display_name || user?.email}
+              </NavLink>
               <button type="button" className="site-header__logout" onClick={logout}>
                 {t('nav.logout')}
               </button>

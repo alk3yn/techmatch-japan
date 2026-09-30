@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import apiClient from '../api/client';
 import JobFilters from '../components/Jobs/JobFilters.jsx';
 import JobList from '../components/Jobs/JobList.jsx';
+import SavedSearches from '../components/Jobs/SavedSearches.jsx';
 import Loading from '../components/common/Loading.jsx';
 import './Jobs.css';
 
@@ -88,6 +89,12 @@ function Jobs() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function loadSavedSearch(filters) {
+    setSearchParams(filters || {});
+    setFiltersOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   return (
     <div className="jobs-page">
       <h1 className="jobs-page__title">{t('jobs.title')}</h1>
@@ -111,6 +118,7 @@ function Jobs() {
               onApply={applyFilters}
               onReset={resetFilters}
             />
+            <SavedSearches currentFilters={current} onLoad={loadSavedSearch} />
           </div>
         </aside>
 

@@ -9,6 +9,7 @@ import JobDetail from './pages/JobDetail.jsx';
 import Analyzer from './pages/Analyzer.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import Profile from './pages/Profile.jsx';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/analyzer" element={<Analyzer />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
         </Routes>
       </AuthProvider>
