@@ -9,7 +9,7 @@
 #   chmod +x deploy/deploy.config.sh deploy/deploy-backend.sh deploy/deploy-frontend.sh
 
 # --- Backend (EC2) ---
-EC2_HOST="ec2-XX-XX-XX-XX.compute-1.amazonaws.com"   # EC2 public DNS, from the EC2 console
+EC2_HOST="ec2-XX-XX-XX-XX.ap-northeast-1.compute.amazonaws.com"   # EC2 public DNS, from the EC2 console (changes if the instance is stopped/started)
 EC2_USER="ec2-user"                                   # ec2-user for Amazon Linux, ubuntu for Ubuntu AMIs
 EC2_KEY_PATH="$HOME/.ssh/techmatch-japan.pem"         # the .pem you downloaded when creating the key pair
 REMOTE_APP_DIR="/home/$EC2_USER/techmatch-japan"      # where the repo lives on the instance

@@ -2,8 +2,9 @@
 // Shared axios instance. Attaches the JWT (if present) to every request
 // and points at the backend API base URL.
 //
-// Set VITE_API_URL in client/.env for local dev (see .env.example) and
-// again at build time when pointing at the deployed EC2 URL.
+// Set VITE_API_URL in client/.env for local dev (see .env.example). For
+// production builds use VITE_API_URL=/api in client/.env.production:
+// CloudFront forwards /api/* to the EC2 backend (see DEPLOYMENT.md).
 
 import axios from 'axios';
 

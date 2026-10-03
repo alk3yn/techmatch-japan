@@ -346,12 +346,12 @@ for testing too), then reload:
 nano ~/techmatch-japan/server/.env
 # CLIENT_ORIGIN=https://dxxxxxxxxxxxxx.cloudfront.net
 
-pm2 reload techmatch-api --update-env
+pm2 reload techmatch-api --env production
 ```
 
 The API checks the `Origin` header on requests, so this must match the
 CloudFront domain exactly (including `https://`, with no trailing slash).
-`--update-env` is what makes PM2 pick up the changed `.env` values.
+Reloading restarts the process, and the app re-reads `server/.env` on start.
 
 ---
 
