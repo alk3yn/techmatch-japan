@@ -11,7 +11,10 @@ Japanese employers.
 
 ## Live Demo
 
-🔗 _[Add your live URL here after deploying — see [DEPLOYMENT.md](./DEPLOYMENT.md)]_
+🔗 **[https://d3laf37ajd6nv0.cloudfront.net](https://d3laf37ajd6nv0.cloudfront.net)**
+
+> Hosted on an AWS free plan, so the demo may go offline at some point. The
+> screenshots below show the main pages.
 
 ## Screenshots
 
@@ -56,18 +59,18 @@ Japanese employers.
 
 ```
 User Browser
-    │
+    │  HTTPS
     ▼
-[S3 + CloudFront]         ← React SPA (static files)
+[CloudFront]
+    ├── /*      → [S3]                ← React SPA (static files)
     │
-    ▼  HTTPS/HTTP
-[EC2: nginx :80]          ← reverse proxy (see deploy/nginx/)
-    │
-    ▼  proxy_pass
-[EC2: Node + PM2 :5000]   ← Express API (server/ecosystem.config.js)
-    │
-    ▼
-[RDS PostgreSQL]
+    └── /api/*  → [EC2: nginx :80]    ← reverse proxy (see deploy/nginx/)
+                      │  proxy_pass
+                      ▼
+                  [EC2: Node + PM2 :5000]   ← Express API (server/ecosystem.config.js)
+                      │
+                      ▼
+                  [RDS PostgreSQL]
 ```
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for the full step-by-step AWS setup.
@@ -100,7 +103,7 @@ All responses follow `{ success: boolean, data: any, error?: string }`.
 
 ```bash
 # Clone
-git clone https://github.com/tejas-5/techmatch-japan.git
+git clone https://github.com/alk3yn/techmatch-japan.git
 cd techmatch-japan
 
 # Backend
@@ -144,7 +147,8 @@ Production variants — `server/.env.production.example` and
 
 Deployed on AWS: the React build is served from S3 behind CloudFront, and
 the Express API runs under PM2 on an EC2 instance behind an nginx reverse
-proxy, talking to a PostgreSQL database on RDS.
+proxy, talking to a PostgreSQL database on RDS. CloudFront also forwards
+`/api/*` to the EC2 instance, so the site and the API share one HTTPS domain.
 
 Full step-by-step instructions, plus the `deploy/` scripts that automate
 each redeploy, are in **[DEPLOYMENT.md](./DEPLOYMENT.md)**.
@@ -158,7 +162,7 @@ project. No real companies, postings, or applications are involved; the
 
 ## Author
 
-**Tejas Agrawal** — [Portfolio](https://tejas-agrawal.web.app/) | [GitHub](https://github.com/tejas-5)
+**Tejas Agrawal** — [Portfolio](https://tejas-agrawal.web.app/) | [GitHub (tejas-5)](https://github.com/tejas-5) | [GitHub (alk3yn)](https://github.com/alk3yn)
 
 ## License
 
