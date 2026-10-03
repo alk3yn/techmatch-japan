@@ -12,6 +12,7 @@
 
 .skill-input__field {
   flex: 1;
+  min-width: 0; /* let the input shrink so the button stays inside the card */
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   color: var(--text-primary);
@@ -35,6 +36,7 @@
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .skill-input__add:hover {
