@@ -8,6 +8,12 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Running behind nginx (or an ALB) in production — trust the first proxy
+// hop so req.ip / rate limiting / logging reflect the real client IP.
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
+
 // ---- Core middleware ----
 const allowedOrigins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
   .split(',')

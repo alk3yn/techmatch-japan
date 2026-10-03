@@ -5,6 +5,11 @@ node_modules/
 .env
 .env.local
 .env.*.local
+.env.production
+.env.production.local
+
+# Deploy config with real host/bucket values (see deploy.config.sh.example)
+deploy/deploy.config.sh
 
 # Build output
 dist/
